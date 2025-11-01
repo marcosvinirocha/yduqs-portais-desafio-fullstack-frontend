@@ -2,10 +2,16 @@ import React, { useState } from 'react';
 import Drawer from '../ui/drawer';
 import ParcelasTable from '../ParcelaTable';
 import { Plus } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 export default function CardPresencial() {
   const [open, setOpen] = useState(false);
   const isMobile = window.innerWidth < 640;
+  const navigate = useNavigate();
+
+  const handleRedirect = () => {
+    navigate('/register');
+  };
 
   const payments = [
     {
@@ -101,7 +107,10 @@ export default function CardPresencial() {
             </div>
 
             <div className='space-y-4' />
-            <button className='w-full bg-rose-500 hover:bg-pink-700 text-white font-bold py-4 px-4 md:px-6 md:py-4 rounded-lg transition duration-300 shadow-md'>
+            <button
+              onClick={handleRedirect}
+              className='w-full bg-rose-500 hover:bg-pink-700 text-white font-bold py-4 px-4 md:px-6 md:py-4 rounded-lg transition duration-300 shadow-md'
+            >
               Avançar
             </button>
           </div>

@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
 import { Info, Plus } from 'lucide-react';
 import Drawer from '../ui/drawer';
+import { useNavigate } from 'react-router-dom';
 // import { FinanceEadDrawer } from '../FinanceEadDrawer';
 
 export default function CardEad() {
   const [open, setOpen] = useState(false);
   const isMobile = window.innerWidth < 640;
+  const navigate = useNavigate();
+
+  const handleRedirect = () => {
+    navigate('/register');
+  };
 
   return (
     <div>
@@ -58,7 +64,10 @@ export default function CardEad() {
             </div>
           </div>
           <div className='space-x-4'>
-            <button className='w-full bg-rose-500 hover:bg-pink-700 text-white font-bold py-3 rounded-lg transition duration-300 shadow-md'>
+            <button
+              onClick={handleRedirect}
+              className='w-full bg-rose-500 hover:bg-pink-700 text-white font-bold py-3 rounded-lg transition duration-300 shadow-md'
+            >
               Avançar
             </button>
           </div>
