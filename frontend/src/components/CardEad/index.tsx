@@ -6,6 +6,7 @@ import Drawer from '../ui/drawer';
 export default function CardEad() {
   const [open, setOpen] = useState(false);
   const isMobile = window.innerWidth < 640;
+
   return (
     <div>
       <div className='max-w-xs mx-auto bg-blue-700 border border-blue-700 rounded-xl shadow-lg overflow-hidden'>
@@ -42,9 +43,9 @@ export default function CardEad() {
         isOpen={open}
         onClose={() => setOpen(false)}
         size={isMobile ? 'lg' : 'xl'} // opções: 'sm', 'md', 'lg', 'xl'
-        title='Configurações'
+        isinfo={true}
+        title='Mais Detalhes'
       >
-        <p>Conteúdo personalizado aqui...</p>
         <div className='h-96 bg-gray-100 flex items-center justify-center'>
           Este é o conteúdo do drawer.
         </div>

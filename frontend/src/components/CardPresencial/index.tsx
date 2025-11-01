@@ -1,10 +1,43 @@
 import React, { useState } from 'react';
 import Drawer from '../ui/drawer';
-// import { FinanceDrawer } from '../FinanceDrawer';
+import ParcelasTable from '../ParcelaTable';
+import { Plus } from 'lucide-react';
 
 export default function CardPresencial() {
   const [open, setOpen] = useState(false);
   const isMobile = window.innerWidth < 640;
+
+  const payments = [
+    {
+      installment: '1x R$2.613,6',
+      totalAmount: 'R$ 2.613,60',
+    },
+    {
+      installment: '3x R$900,90',
+      totalAmount: 'R$ 2.702,70',
+    },
+    {
+      installment: '6x R$465,30',
+      totalAmount: 'R$ 2.791,80',
+    },
+    {
+      installment: '9x R$320,10',
+      totalAmount: 'R$ 2.880,90',
+    },
+    {
+      installment: '12x R$247,5',
+      totalAmount: 'R$ 2.966,00',
+    },
+    {
+      installment: '15x R$200,97',
+      totalAmount: 'R$ 3.014,55',
+    },
+    {
+      installment: '18x R$169,95',
+      totalAmount: 'R$ 3.059,10',
+    },
+  ];
+
   return (
     <div>
       <div className='max-w-xs mx-auto bg-blue-700 border border-blue-700 rounded-xl shadow-lg overflow-hidden'>
@@ -45,11 +78,29 @@ export default function CardPresencial() {
         isOpen={open}
         onClose={() => setOpen(false)}
         size={isMobile ? 'lg' : 'xl'} // opções: 'sm', 'md', 'lg', 'xl'
-        title='Configurações'
+        title='Mais detalhes'
       >
-        <p>Conteúdo personalizado aqui...</p>
-        <div className='h-96 bg-gray-100 flex items-center justify-center'>
-          Este é o conteúdo do drawer.
+        <p className='pt-4 pb-4  md:pt-6 md:pb-4'>
+          Qual dessas opções de parcelas voçê prefere?
+        </p>
+        <div className='h-96 bg-gray-100'>
+          <div className='border border-blue-700 rounded-lg overflow-hidden'>
+            <ParcelasTable parcelas={payments} />
+          </div>
+
+          <div className='pb-6'>
+            <div className=' px-4 py-4 md:pt-8 md:pb-6 flex justify-between items-center'>
+              <span>Sobre a Bolsa Incentivo</span>
+              <Plus />
+            </div>
+            <div className=' px-4 py-4 md:pt-8 md:pb-6 flex justify-between items-center'>
+              <span>Resumo das suas escolhas</span>
+              <Plus />
+            </div>
+          </div>
+          <button className='w-full bg-rose-500 hover:bg-pink-700 text-white font-bold py-3 rounded-lg transition duration-300 shadow-md'>
+            Avançar
+          </button>
         </div>
       </Drawer>
     </div>

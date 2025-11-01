@@ -9,7 +9,7 @@ module.exports = {
             // ---- FONTES ----
             fontFamily: {
                 sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-                serif: ['Montserrat', 'sans-serif'],
+                serif: ['Montserrat'],
             },
 
             // ---- TAMANHOS FIÉIS (px → rem) ----

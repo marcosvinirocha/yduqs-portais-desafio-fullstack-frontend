@@ -5,6 +5,7 @@ interface DrawerProps {
   onClose?: () => void;
   size?: 'sm' | 'md' | 'lg' | 'xl';
   title?: string;
+  isinfo?: boolean;
   children: React.ReactNode;
 }
 
@@ -13,12 +14,13 @@ const Drawer: React.FC<DrawerProps> = ({
   onClose,
   size = 'md',
   title,
+  isinfo,
   children,
 }) => {
   const widthClasses = {
     sm: 'w-64',
     md: 'w-80',
-    lg: 'w-103',
+    lg: 'w-104',
     xl: 'w-[500px]',
   };
 
@@ -49,11 +51,11 @@ const Drawer: React.FC<DrawerProps> = ({
         <div className='flex flex-col h-full'>
           {/* Cabeçalho */}
           {(title || onClose) && (
-            <div className='flex items-center justify-between p-4 border-b border-gray-200'>
+            <div className='flex items-center justify-between py-5 px-4 md:py-8 md:px-8 border-b border-gray-200'>
               {title && (
                 <h2
                   id='drawer-title'
-                  className='text-lg font-semibold text-gray-800'
+                  className=' font-serif text-[32px] mt-6 mb-6 text-gray-800'
                 >
                   {title}
                 </h2>
@@ -82,7 +84,10 @@ const Drawer: React.FC<DrawerProps> = ({
           )}
 
           {/* Conteúdo */}
-          <div className='flex-1 p-4 overflow-y-auto'>{children}</div>
+          {isinfo && <div className='h-[150px] w-full bg-blue-700'></div>}
+          <div className='flex-1 px-4 py-4 md:px-8 md:py-6 overflow-y-auto'>
+            {children}
+          </div>
         </div>
       </div>
     </>
