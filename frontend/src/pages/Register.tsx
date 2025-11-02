@@ -16,6 +16,7 @@ import { Input } from '../components/ui/input';
 import { Checkbox } from '../components/ui/checkbox';
 import { Label } from '../components/ui/label';
 import { Spinner } from '../components/ui/spinner';
+import FooterRegister from '../components/FooterRegister';
 
 const formSchema = z.object({
   username: z.string().min(2, {
@@ -39,7 +40,7 @@ const formSchema = z.object({
 });
 
 export default function Register() {
-  const CardTitleInfo = 'Vamos começar, escolha as opções do seu curso';
+  const CardTitleInfo = 'Queremos saber um pouco mais sobre você';
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -51,7 +52,7 @@ export default function Register() {
   }
   return (
     <div>
-      <Cardinfo title={CardTitleInfo} />
+      <Cardinfo title={CardTitleInfo} isRegister={true} />
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
@@ -135,7 +136,7 @@ export default function Register() {
             )}
           />
           <div>
-            <div className='flex items-start gap-2'>
+            <div className='flex items-start gap-2 mb-6'>
               <Checkbox defaultChecked id='terms' className='mt-1' />
               <Label htmlFor='terms' className='cursor-pointer'>
                 <span className='text-black font-sans text-sm leading-tight whitespace-pre-wrap inline'>
@@ -157,19 +158,20 @@ export default function Register() {
                 </span>
               </Label>
             </div>
-            <div className='flex items-center gap-2 space-x-2'>
+            <div className='flex items-center gap-2 mb-8 space-x-2'>
               <Checkbox defaultChecked id='terms-2' />
               <Label htmlFor='terms'>
                 Aceito receber atualizações sobre minha inscrição pelo WhatsApp.
               </Label>
             </div>
           </div>
-          <Button type='submit'>
+          <Button className='mb-10' type='submit'>
             <Spinner />
             Avançar
           </Button>
         </form>
       </Form>
+      <FooterRegister />
     </div>
   );
 }

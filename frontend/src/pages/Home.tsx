@@ -2,6 +2,7 @@ import React from 'react';
 import Cardinfo from '../components/CardInfo';
 import CardPresencial from '../components/CardPresencial';
 import CardEad from '../components/CardEad';
+import Footer from '../components/Footer';
 
 export default function Home() {
   const CardTitleInfo = 'Vamos começar, escolha as opções do seu curso';
@@ -20,6 +21,7 @@ export default function Home() {
           <CardEad />
         </div>
       </div>
+      <Footer />
     </>
   );
 }
