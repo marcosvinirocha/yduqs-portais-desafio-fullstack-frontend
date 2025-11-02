@@ -17,6 +17,8 @@ import { Checkbox } from '../components/ui/checkbox';
 import { Label } from '../components/ui/label';
 import { Spinner } from '../components/ui/spinner';
 import FooterRegister from '../components/FooterRegister';
+import { useDispatch, useSelector } from 'react-redux';
+import type { AppDispatch, RootState } from '../store/store';
 
 const formSchema = z.object({
   username: z.string().min(2, {
@@ -41,6 +43,11 @@ const formSchema = z.object({
 
 export default function Register() {
   const CardTitleInfo = 'Queremos saber um pouco mais sobre você';
+
+  // const dispatch = useDispatch<AppDispatch>();
+  // const { loading, success, error, data } = useSelector(
+  //   (state: RootState) => state.user
+  // );
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
