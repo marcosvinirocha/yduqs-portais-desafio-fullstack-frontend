@@ -64,6 +64,7 @@ export default function CardPresencial() {
             <p className='font-sans text-white'>á vista R$ 2.613,60</p>
           </div>
           <button
+            data-testid='main-advance-button'
             onClick={() => setOpen(true)}
             className='w-full bg-rose-500 hover:bg-pink-700 text-white font-bold py-3 rounded-lg transition duration-300 shadow-md'
           >

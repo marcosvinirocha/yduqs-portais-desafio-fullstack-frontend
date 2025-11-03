@@ -27,7 +27,6 @@ const Drawer: React.FC<DrawerProps> = ({
 
   return (
     <>
-      {/* Overlay com transição de opacidade */}
       {isOpen && (
         <div
           className='fixed inset-0 z-40 bg-black bg-opacity-50 transition-all duration-300 ease-in-out opacity-0 backdrop-blur-none'
@@ -36,11 +35,10 @@ const Drawer: React.FC<DrawerProps> = ({
             backdropFilter: isOpen ? 'blur(4px)' : 'blur(0)',
           }}
           onClick={onClose}
-          aria-hidden='true'
+          data-testid='payment-drawer'
         />
       )}
 
-      {/* Painel do Drawer com animação suave */}
       <div
         className={`fixed top-0 right-0 z-50 h-full bg-white shadow-xl transform transition-transform duration-300 ease-in-out ${
           widthClasses[size]
@@ -50,7 +48,6 @@ const Drawer: React.FC<DrawerProps> = ({
         aria-labelledby={title ? 'drawer-title' : undefined}
       >
         <div className='flex flex-col h-full'>
-          {/* Cabeçalho */}
           {(title || onClose) && (
             <div className='flex items-center justify-between py-5 px-4 md:py-8 md:px-8 border-b border-gray-200'>
               {title && (
@@ -71,7 +68,6 @@ const Drawer: React.FC<DrawerProps> = ({
             </div>
           )}
 
-          {/* Conteúdo */}
           {isinfo && (
             <div className='h-[150px] w-full bg-blue-700 flex flex-col items-start px-4 justify-center'>
               <Info className='text-white' />
