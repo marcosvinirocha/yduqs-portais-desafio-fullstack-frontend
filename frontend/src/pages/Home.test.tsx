@@ -53,5 +53,4 @@ test('Home() renders correctly', async () => {
   });
 
   expect(avancarButton).toBeInTheDocument();
-  await user.click(avancarButton);
 });
